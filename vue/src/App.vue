@@ -1,26 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import ButtonComponent from  './components/buttonComponent.vue'
 
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <buttonComponent />
-    <div class="wrapper">
-      <HelloWorld msg="ahaha that's wild" />
-    <ButtonComponent />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-
-  </header>
-
-  <RouterView />
+  <h1>buy my stuff :)</h1>
+  <img alt="Vue logo" class="logo" src="@/icons/shopping-cart.svg" width="125" height="125" />
 </template>
 
 <style scoped>
