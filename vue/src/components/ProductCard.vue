@@ -31,10 +31,10 @@ export default {
 <template>
   <div>
     <div class="products">
-      <h2>{{ product.name }}</h2>
-      <img :src="product.image" />
-      <p>{{ product.description }}</p>
-      <p>{{ product.price }}</p>
+      <h2>{{ products.name }}</h2>
+      <img :src="products.image" />
+      <p>{{ products.description }}</p>
+      <p>{{ products.price }}</p>
     </div>
   </div>
 </template>
