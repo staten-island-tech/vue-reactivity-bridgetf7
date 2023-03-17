@@ -10,10 +10,12 @@ export default {
   components: {
     ProductCard
   }
-}   
+}  
 </script>
 
 <style>
+/* https: //goldenvineyardbranding.com/blog/minimalist-color-palette/  */
+
 body {
   background-color: #E0E1DD;
 }
