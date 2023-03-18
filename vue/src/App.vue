@@ -6,10 +6,7 @@
 <script>
 import ProductCard from './components/ProductCard.vue';
 export default {
-  name: "Products",
-  components: {
-    ProductCard
-  }
+  name: "Products"
 }   
 </script>
 
