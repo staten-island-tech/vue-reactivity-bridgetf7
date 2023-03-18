@@ -6,9 +6,18 @@
 <script>
 import ProductCard from './components/ProductCard.vue';
 export default {
-  name: "Products"
+  name: "Products",
+  components: {
+    ProductCard
+  }
 }   
 </script>
 
-<style></style>
+<style>
+/* https: //goldenvineyardbranding.com/blog/minimalist-color-palette/  */
+
+body {
+  background-color: #E0E1DD;
+}
+</style>
 
