@@ -1,6 +1,8 @@
 <template>
+  <main>
   <h1>buy my stuff</h1>
   <HomeView />
+  </main>
 </template>
 
 <script>
@@ -14,13 +16,17 @@ export default {
 </script>
 
 <style>
-
 h1 {
   font-size: 3rem;
   text-align: center;
 }
 body {
   background-color: #E0E1DD;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
 }
 </style>
 

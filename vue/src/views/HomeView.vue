@@ -6,9 +6,9 @@
 import ProductCard from '../components/ProductCard.vue';
 export default {
   name: "HomeView",
-  components: { 
+  components: {
     ProductCard,
-  },
+},
 }
 </script>
 

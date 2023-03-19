@@ -5,7 +5,7 @@
       <img :src="product.img" />
       <p class="productType">{{ product.type }}</p>
       <p>{{ usDollar.format(product.price) }}</p>
-      <ProductButton>Add to Cart</ProductButton>
+      <ProductButton @click="cart(product)">Add to Cart</ProductButton>
     </div>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
     name: String,
     type: String,
     price: Number,
-    img: String
+    img: String,
+    quantity: Number
   },
   components: {
     ProductButton,
@@ -31,39 +32,49 @@ export default {
           name: "chair",
           type: "chair",
           price: 450,
-          img: ""
+          img: "",
+          quantity: 0
         },
         {
           name: "couch",
           type: "chair",
           price: 800,
-          img: ""
+          img: "",
+          quantity: 0
         },
         {
           name: "table",
           type: "dining table",
           price: 1600,
-          img: ""
+          img: "",
+          quantity: 0
         },
         {
           name: "shelf",
           type: "storage",
           price: 175,
-          img: ""
+          img: "",
+          quantity: 0
         }
       ],
       //formats prices into US dollars
       usDollar: new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
-      })
+      }),
     }
-  }
+  },
+  methods: {
+    cart(product) {
+      product.quantity++;
+      console.log(product.name,product.quantity,product.price);
+    }
+  },
 }
 </script>
 
-<style scoped>
 
+<style scoped>
 .productCard {
   font-family: 'Playfair Display', serif;
   background-color: var(--lightGray);
