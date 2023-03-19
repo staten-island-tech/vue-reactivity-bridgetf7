@@ -1,20 +1,25 @@
 <template>
   <h1>buy my stuff</h1>
-  <ProductCard v-for="product in products" :name="product.name" :product="product" />
+  <ProductCard />
 </template>
 
 <script>
 import ProductCard from './components/ProductCard.vue';
+import ProductButton from './components/ProductButton.vue';
 export default {
-  name: "Products",
+  name: "App",
   components: {
+    ProductButton,
     ProductCard
-  }
-}   
+  },
+}
 </script>
 
 <style>
-/* https: //goldenvineyardbranding.com/blog/minimalist-color-palette/  */
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
 
 body {
   background-color: #E0E1DD;

@@ -1,42 +1,90 @@
+<template>
+  <div>
+    <div class="productCard" v-for="product in products" :key="product.name">
+      <h2>{{ product.name }}</h2>
+      <img :src="product.img" />
+      <p class="productType">{{ product.type }}</p>
+      <p>{{ usDollar.format(product.price) }}</p>
+      <ProductButton>Add to Cart</ProductButton>
+    </div>
+  </div>
+</template>
+
 <script>
+import ProductButton from './ProductButton.vue';
+
 export default {
+  name: "ProductCard",
+  props: {
+    name: String,
+    type: String,
+    price: Number,
+    img: String
+  },
+  components: {
+    ProductButton,
+  },
   data() {
     return {
       products: [
         {
-          name: "Erica wishes she was this chair and will think of another name",
+          name: "chair",
           type: "chair",
           price: 450,
-          img: "https://unsplash.com/photos/UIcBEy5TDTA"
+          img: ""
         },
         {
-          name: "Erica thought the human was wall decor",
+          name: "couch",
           type: "chair",
           price: 800,
-          img: "https://unsplash.com/photos/ej3UoXYMaRI"
+          img: ""
         },
         {
-          name: "I will name it later—Eroca",
+          name: "table",
           type: "dining table",
           price: 1600,
-          img: "https://unsplash.com/photos/h7HnSTwc7y0"
+          img: ""
+        },
+        {
+          name: "shelf",
+          type: "storage",
+          price: 175,
+          img: ""
         }
-      ]
+      ],
+      //formats prices into US dollars
+      usDollar: new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      })
     }
   }
 }
 </script>
-  
 
-<template>
-  <div>
-    <div class="products">
-      <h2>{{ products.name }}</h2>
-      <img :src="products.image" />
-      <p>{{ products.description }}</p>
-      <p>{{ products.price }}</p>
-    </div>
-  </div>
-</template>
-  
-<style></style>
+<style scoped>
+.productCard {
+  font-family: 'Playfair Display', serif;
+  background-color: var(--lightGray);
+  margin: 2rem;
+  padding: 1.25rem;
+  display: inline-block;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  color: black;
+  text-transform: capitalize;
+}
+
+p {
+  font-family: 'Outfit', sans-serif;
+  color: var(--slateBlue);
+}
+
+.productType {
+  color: black;
+  text-transform: capitalize;
+}
+</style>
