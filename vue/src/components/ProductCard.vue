@@ -63,6 +63,7 @@ export default {
 </script>
 
 <style scoped>
+
 .productCard {
   font-family: 'Playfair Display', serif;
   background-color: var(--lightGray);
