@@ -24,9 +24,5 @@ body {
   background-color: #E0E1DD;
 }
 
-main{
-  display: flex;
-  flex-direction: column;
-}
 </style>
 

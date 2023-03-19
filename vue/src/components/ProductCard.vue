@@ -81,6 +81,8 @@ export default {
   margin: 2rem;
   padding: 1.25rem;
   display: inline-block;
+  width: 16rem;
+  height: 25rem;
 }
 
 h2 {
@@ -99,4 +101,5 @@ p {
   color: black;
   text-transform: capitalize;
 }
+
 </style>
