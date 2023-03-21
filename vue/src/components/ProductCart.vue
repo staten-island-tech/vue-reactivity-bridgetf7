@@ -22,8 +22,8 @@ export default {
         <p>{{ usDollar.format(product.price) }}</p>
         <p>Qty: {{ product.quantity }}</p>
     </div>
-    <!-- <p>Cart total: {{ totalPrice }}</p> -->
-    <p>Items in Cart: {{ cartItems }}</p>
+    <p>Items in Cart: {{ totalItems }}</p>
+    <p>Cart total: {{ totalPrice }}</p>
 </template>
 
 

@@ -32,13 +32,16 @@ export default {
         style: "currency",
         currency: "USD",
       }),
-      cartItems: 0,
+      totalItems: 0,
+      totalPrice: 0,
     }
   },
   methods: {
     addToCart(product) {
-      product.quantity++;
-      this.cartItems++;
+      product.quantity++; //increase the qty every time the button is pressed
+      this.totalItems++; //for every time the button is pressed, the qty is added to the cart total
+      this.totalPrice += product.price; //for every time the button is pressed, the price is added to the cart total
+      console.log(this.totalItems, this.totalPrice); //i swear this code works, the console log is a mess but it proves my point 
     },
   },
 }
@@ -75,10 +78,5 @@ p {
 .productType {
   color: black;
   text-transform: capitalize;
-}
-
-.cart {
-  margin-top: 2rem;
-  font-family: 'Outfit', sans-serif;
 }
 </style>
