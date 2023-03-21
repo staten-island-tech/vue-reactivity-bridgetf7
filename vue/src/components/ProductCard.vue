@@ -52,16 +52,16 @@ export default {
 .productCard {
   font-family: 'Cormorant Garamond', serif;
   background-color: var(--lightGray);
-  margin: 2rem;
+  margin: 1rem;
   padding: 1.25rem;
   display: inline-block;
   width: 16rem;
   height: 25rem;
+  line-height: 0.5rem;
 }
 
-
-p {
-  font-family: 'Outfit', sans-serif;
+img {
+  width: 16rem;
 }
 
 .productType {

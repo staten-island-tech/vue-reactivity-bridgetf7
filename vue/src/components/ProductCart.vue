@@ -16,38 +16,48 @@ export default {
 </script>
 
 <template>
-    <button @click="cartVisible=!cartVisible">Open Shopping Cart</button>
-    <div class="shoppingCart">
-        <h2 v-show="cartVisible">Shopping Cart</h2>
-        <hr>
-        <div class="checkoutCard" v-for="product in products" :key="product.name" v-show="cartVisible">
+    <button @click="cartVisible = !cartVisible">Open Shopping Cart</button>
+    <h2 v-show="cartVisible">Shopping Cart</h2>
+    <div class="shoppingCart" v-show="cartVisible">
+<div class="cards">
+        <div class="checkoutCard" v-for="product in products" :key="product.name">
             <p>{{ product.name }}</p>
             <p>{{ usDollar.format(product.price) }}</p>
             <p>Qty: {{ product.quantity }}</p>
         </div>
+</div>
+        <div class="totals">
+            <p>Items in Cart: {{ totalItems }}</p>
+            <p>Cart total: {{ totalPrice }}</p>
+        </div>
+
     </div>
-    <p>Items in Cart: {{ totalItems }}</p>
-    <p>Cart total: {{ totalPrice }}</p>
+
 </template>
 
 
 
 
 <style scoped>
-.shoppingCart{
+.shoppingCart {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
 }
 
-
-
+.cards {
+    display: flex;
+    flex-direction: row;
+}
 .checkoutCard {
     background-color: var(--lightGray);
     margin: 2rem;
     padding: 1.25rem;
     display: inline-block;
     width: 16rem;
-    height: 15rem;
+    height: 1rem;
     display: flex;
+    flex-direction: column;
+    line-height: 0.4rem;
 }
 </style>

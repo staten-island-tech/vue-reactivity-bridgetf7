@@ -7,10 +7,6 @@
     justify-content: center;
 }
 
-p {
-    font-family: 'Outfit', sans-serif;
-}
-
 h2 {
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
@@ -19,4 +15,16 @@ h2 {
     letter-spacing: 0.35rem;
     text-align: center;
     color: black;
-  }
+}
+
+h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
+}
+
+p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+}
