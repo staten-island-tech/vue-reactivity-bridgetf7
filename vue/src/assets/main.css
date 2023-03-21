@@ -1,9 +1,22 @@
 @import './base.css';
 
 #app {
-padding: 1rem;
-margin: 1rem;
-font-family: 'Outfit', sans-serif;
-display: flex;
-justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
 }
+
+p {
+    font-family: 'Outfit', sans-serif;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-size: 2.75rem;
+    font-weight: 500;
+    letter-spacing: 0.35rem;
+    text-align: center;
+    color: black;
+  }

@@ -1,8 +1,8 @@
 <template>
   <main>
-  <h1>buy my stuff</h1>
-  <h2>please :)</h2>
-  <HomeView />
+    <h1>buy my stuff</h1>
+    <h2>please :)</h2>
+    <HomeView />
   </main>
 </template>
 
@@ -12,23 +12,22 @@ export default {
   name: "App",
   components: {
     HomeView
-},
+  },
 }
 </script>
 
-<style>
-h1 {
-  font-size: 3rem;
+<style scoped>
+h1 {  
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;  
+  font-weight: 600;  
+  letter-spacing: 0.35rem;
   text-align: center;
 }
 
-h2{
+h2 {
   font-size: 1.5rem;
-  text-align: center;
+  font-style: italic;  
 }
-body {
-  background-color: #E0E1DD;
-}
-
 </style>
 
