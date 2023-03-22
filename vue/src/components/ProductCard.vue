@@ -10,6 +10,7 @@
       <ProductButton @click="addToCart(product)">Add to Cart</ProductButton>
     </div>
   </div>
+  <p id="end">you've reached the end of the catalogue</p>
 </template>
 
 <script>
@@ -80,5 +81,10 @@ img {
 .productType {
   color: black;
   text-transform: capitalize;
+}
+
+#end {
+  text-align: center;
+  opacity: 80%;
 }
 </style>
