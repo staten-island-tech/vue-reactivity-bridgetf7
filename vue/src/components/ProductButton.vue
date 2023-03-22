@@ -29,9 +29,10 @@ button {
     color: white;
     background-color: black;
     padding: 0.3rem 0.6rem 0.3rem 0.6rem;
-    border-radius: 0.6rem;
     border-color: transparent;
-}:hover{
+}
+
+:hover {
     transform: scale(1.04);
 }
 </style>

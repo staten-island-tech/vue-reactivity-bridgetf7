@@ -1,12 +1,14 @@
 <template>
   <h2>Products</h2>
   <hr>
-  <div class="productCard" v-for="product in products" :key="product.name">  
-    <img :src="product.img" />
-    <h3>{{ product.name }}</h3>
-    <p class="productType">{{ product.type }}</p>
-    <p>{{ usDollar.format(product.price) }}</p>
-    <ProductButton @click="addToCart(product)">Add to Cart</ProductButton>
+  <div class="products">
+    <div class="productCard" v-for="product in products" :key="product.name">
+      <img :src="product.img" />
+      <h3>{{ product.name }}</h3>
+      <p class="productType">{{ product.type }}</p>
+      <p>{{ usDollar.format(product.price) }}</p>
+      <ProductButton @click="addToCart(product)">Add to Cart</ProductButton>
+    </div>
   </div>
 </template>
 
@@ -62,6 +64,17 @@ export default {
 
 img {
   width: 16rem;
+}
+
+.products {
+  width: 95rem;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
 }
 
 .productType {
