@@ -2,7 +2,7 @@
   <div class="sidebar">
     <h2>Shopping Cart</h2>
     <hr>
-<!--     <div class="cards">
+    <!--     <div class="cards">
       <div class="checkoutCard" v-for="product in products" :key="product.name">
         <p>{{ product.name }}</p>
         <p>{{ usDollar.format(product.price) }}</p>

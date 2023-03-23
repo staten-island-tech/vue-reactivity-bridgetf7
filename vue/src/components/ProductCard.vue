@@ -17,6 +17,9 @@
 import ProductButton from './ProductButton.vue';
 import { products } from '../products.js';
 
+//https://www.smashingmagazine.com/2020/01/data-components-vue-js/#emitting-custom-events-share-data-child-parent
+//https://learnvue.co/articles/vue-emit-guide
+
 export default {
   name: "ProductCard",
   props: {
@@ -101,7 +104,7 @@ hr {
   height: 0.02rem;
 }
 
-h2{
+h2 {
   line-height: 0;
 }
 </style>
