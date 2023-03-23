@@ -30,7 +30,7 @@ export const products = [
   {
     name: "Black Chair",
     type: "Seating",
-    price: 500,
+    price: 60,
     img: "/blackChair.jpg",
     quantity: 0
   },
@@ -49,7 +49,7 @@ export const products = [
     quantity: 0
   },
   {
-    name: "Cafe Table",
+    name: "Cafe Table Set",
     type: "Tables",
     price: 500,
     img: "/whiteTableSet.jpg",
@@ -60,6 +60,27 @@ export const products = [
     type: "Tables",
     price: 800,
     img: "/coffeeTable.jpg",
+    quantity: 0
+  },
+  {
+    name: "Black Shelf",
+    type: "Storage",
+    price: 400,
+    img: "/blackShelf.jpg",
+    quantity: 0
+  },
+  {
+    name: "Beige Dining Table Set",
+    type: "Tables",
+    price: 1300,
+    img: "/beigeDiningSet.jpg",
+    quantity: 0
+  },
+  {
+    name: "Coffee Table Set",
+    type: "Tables",
+    price: 1200,
+    img: "/coffeeTableSet.jpg",
     quantity: 0
   }
 

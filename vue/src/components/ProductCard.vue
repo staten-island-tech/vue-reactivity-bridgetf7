@@ -56,7 +56,7 @@ template {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center ;
+  align-items: center;
 }
 
 .productCard {
@@ -81,7 +81,7 @@ img {
   align-content: center;
   flex-wrap: wrap;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 
 .productType {
@@ -95,6 +95,13 @@ img {
 }
 
 hr {
-  width: auto;
+  display: block;
+  width: 80%;
+  background-color: black;
+  height: 0.02rem;
+}
+
+h2{
+  line-height: 0;
 }
 </style>

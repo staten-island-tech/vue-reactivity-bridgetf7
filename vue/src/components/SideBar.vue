@@ -10,23 +10,21 @@
       </div>
     </div> -->
     <div class="totals">
-      <p>Items in Cart: {{ totalItems }}</p>
-      <p>Cart total: {{ totalPrice }}</p>
+      <p>Items in cart: {{ totalItems }}</p>
+      <p>Cart total: {{ usDollar.format(totalPrice) }}</p>
     </div>
-
   </div>
 </template>
 
+
 <script>
 import { products } from '../products.js'
-
 
 export default {
   name: "SideBar",
   data() {
     return {
       products,
-      cartVisible: false,
       usDollar: new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -59,9 +57,7 @@ export default {
   flex-direction: column;
   line-height: 0.4rem;
 }
-</style>
 
-<style scoped>
 .sidebar {
   position: fixed;
   top: 0;
@@ -78,8 +74,8 @@ h2 {
   font-style: normal;
   font-size: 2rem;
   font-weight: 500;
-  letter-spacing: 0rem;
   text-align: center;
+  letter-spacing: 0;
   color: black;
 }
 

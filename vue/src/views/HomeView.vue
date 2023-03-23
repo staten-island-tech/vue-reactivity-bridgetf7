@@ -13,6 +13,7 @@
 <script>
 import ProductCard from '../components/ProductCard.vue';
 import SideBar from '../components/sideBar.vue';
+
 export default {
   name: "HomeView",
   components: {
