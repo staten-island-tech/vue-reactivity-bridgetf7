@@ -66,9 +66,9 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  width: 20rem;
+  width: 15%;
   height: 100%;
-  background-color: var(--lightGray);
+  background-color: #fffcfc;
   line-height: 1rem;
   padding: 1rem;
 }
@@ -84,6 +84,6 @@ h2 {
 }
 
 hr {
-  width: 18rem;
+  width: 16rem;
 }
 </style>

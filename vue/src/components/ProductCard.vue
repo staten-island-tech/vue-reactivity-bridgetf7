@@ -52,6 +52,13 @@ export default {
 </script>
 
 <style scoped>
+template {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center ;
+}
+
 .productCard {
   font-family: 'Cormorant Garamond', serif;
   background-color: var(--lightGray);
@@ -68,14 +75,13 @@ img {
 }
 
 .products {
-  width: 95rem;
-  flex-wrap: wrap;
+  width: 80%;
   display: flex;
-  justify-content: center;
   padding: 2rem;
-  flex-direction: row;
   align-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content:center;
 }
 
 .productType {
@@ -86,5 +92,9 @@ img {
 #end {
   text-align: center;
   opacity: 80%;
+}
+
+hr {
+  width: auto;
 }
 </style>

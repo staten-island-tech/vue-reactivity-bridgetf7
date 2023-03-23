@@ -58,7 +58,7 @@ export const products = [
   {
     name: "Coffee Table",
     type: "Tables",
-    price: 500,
+    price: 800,
     img: "/coffeeTable.jpg",
     quantity: 0
   }

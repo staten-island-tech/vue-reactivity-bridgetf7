@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <SideBar />
+
     <div class="container">
-      <h1>buy my stuff</h1>
-      <h2>please :)</h2>
-      <ProductCart :openCart="openCart" :closeCart="closeCart" />
+    <h1>buy my stuff</h1>
+    <h2>please :)</h2>
       <ProductCard />
+      <SideBar />
     </div>
   </div>
 </template>
@@ -23,16 +23,25 @@ export default {
 </script>
 
 <style scoped>
-h1 {  
+h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;  
-  font-weight: 600;  
+  font-size: 3rem;
+  font-weight: 600;
   letter-spacing: 0.35rem;
   text-align: center;
 }
 
 h2 {
   font-size: 1.5rem;
-  font-style: italic;  
+  font-style: italic;
+}
+
+.container {
+  display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
 }
 </style>
