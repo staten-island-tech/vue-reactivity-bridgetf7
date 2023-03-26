@@ -30,7 +30,7 @@ export default {
     update,
   },
   methods: {
-    addToCart() {
+    addToCart(product) {
       this.$emit("addToCart", this.product);
       update.addToCart(this.product);
     },

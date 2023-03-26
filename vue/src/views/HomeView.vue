@@ -1,5 +1,5 @@
 <template>
-  
+
   <h1>buy my stuff</h1>
   <h2>please :)</h2>
 
@@ -43,6 +43,8 @@ export default {
   },
   methods: {
     addToCart(product) {
+    },
+    removeFromCart(product){
     },
   },
 }

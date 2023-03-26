@@ -10,8 +10,8 @@
         <p>Qty: {{ product.quantity }}</p>
 
         <div class="buttons">
-        <ProductButton>Remove All</ProductButton>
-        <ProductButton>Remove One</ProductButton>
+        <ProductButton @click="removeFromCart(product)">Remove All</ProductButton>
+        <ProductButton @click="removeOne(product)">Remove One</ProductButton>
       </div>
 
       </div>
@@ -33,6 +33,9 @@ import ProductButton from './ProductButton.vue';
 
 export default {
     name: "SideBar",
+    props: {
+    product: Object,
+  },
     data() {
         return {
             products,
@@ -46,6 +49,16 @@ export default {
     components: { 
       ProductButton 
     },
+    methods: {
+    removeFromCart(product) {
+      this.$emit("removeFromCart", product);
+      update.removeFromCart(product);
+    },
+    removeOne(product){
+      this.$emit("removeOne", product);
+      update.removeOne(product);
+    }
+  },
 }
 </script>
 

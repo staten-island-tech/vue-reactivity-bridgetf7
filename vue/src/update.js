@@ -13,9 +13,9 @@ export const update = reactive({
       productExists.quantity++;
     } else {
       //if product doesn't already exist, push it to thecart with a quantity of 1
-      product.quantity=1;
+      product.quantity = 1;
       this.cart.push(product);
-    } 
+    }
 
     //update total items and total price whenever the "add to cart" button is pressed
     this.totalItems++;
@@ -26,4 +26,27 @@ export const update = reactive({
     console.log("Shopping Cart:", update.cart);
     console.log("Total Items:", this.totalItems, "\nTotal Price:", this.totalPrice);
   },
+  removeFromCart(product) {
+    //finds the index of the product that needs to be removed (targeted product)
+    const target = this.cart.findIndex((key) => key.name === product.name);
+    console.log(target);
+    //splice(start, deleteCount), this line will erase it from the array and visually the cart
+    this.cart.splice(target, 1)
+    this.totalItems -= (product.quantity);
+    this.totalPrice -= (product.quantity) * (product.price)
+  },
+  removeOne(product) {
+    if (product.quantity > 1) {
+      // if the product quantity is greater than 1, just decrement the quantity by 1
+      product.quantity -= 1;
+      this.totalItems -= 1;
+      this.totalPrice -= product.price;
+    } else {
+      //remove entire item from cart, as the product qty will become 0
+      const target = this.cart.findIndex((key) => key.name === product.name);
+      this.cart.splice(target, 1); //this is basically the removeFromCart function
+      this.totalItems -= 1;
+      this.totalPrice -= product.price;
+    }
+  }
 });
