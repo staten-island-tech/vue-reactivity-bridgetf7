@@ -46,6 +46,8 @@ export default {
     },
     removeFromCart(product){
     },
+    removeOne(product){
+    },
   },
 }
 </script>
