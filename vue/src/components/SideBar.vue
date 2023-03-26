@@ -10,8 +10,8 @@
       </div>
     </div> -->
     <div class="totals">
-      <p>Items in cart: {{ totalItems }}</p>
-      <p>Cart total: {{ usDollar.format(totalPrice) }}</p>
+      <p>Items in cart: {{ update.totalItems }}</p>
+      <!-- <p>Cart total: {{ usDollar.format(totalPrice) }}</p> -->
     </div>
   </div>
 </template>
@@ -19,16 +19,18 @@
 
 <script>
 import { products } from '../products.js'
-
+import { update } from "../update";
 export default {
   name: "SideBar",
   data() {
     return {
       products,
+      update,
       usDollar: new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
       }),
+      
     }
   },
 }

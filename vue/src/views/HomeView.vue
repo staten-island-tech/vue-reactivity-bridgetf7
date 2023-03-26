@@ -1,24 +1,55 @@
 <template>
-  <div class="home">
+  <h1>buy my stuff</h1>
+  <h2>please :)</h2>
 
-    <div class="container">
-    <h1>buy my stuff</h1>
-    <h2>please :)</h2>
-      <ProductCard />
-      <SideBar />
-    </div>
-  </div>
+
+  <h2>Products</h2>
+  <hr>
+  <ProductCard v-for="product in products" :product="product" :key="product.name" @addToCart="addToCart" />
+  <p id="end">you've reached the end of the catalogue</p>
+  <SideBar v-for="products in cart" :totalItems="totalItems" :totalPrice="totalPrice" />
+<!--   <div class="totals">
+      <h2>Items in cart: {{ totalItems }}</h2>
+      <h2>Cart total: {{ usDollar.format(totalPrice) }}</h2> 
+    </div> -->
 </template>
 
 <script>
+import { products } from '../products.js';
 import ProductCard from '../components/ProductCard.vue';
-import SideBar from '../components/sideBar.vue';
+import SideBar from '../components/SideBar.vue'
+
+//https://www.smashingmagazine.com/2020/01/data-components-vue-js/#emitting-custom-events-share-data-child-parent
+//https://learnvue.co/articles/vue-emit-guide
 
 export default {
-  name: "HomeView",
+  name: "Home",
   components: {
     ProductCard,
     SideBar
+
+  },
+  data() {
+    return {
+      products,
+      totalItems: 0,
+      totalPrice: 0,
+      cart: [],
+      usDollar: new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }),
+    }
+  },
+  methods: {
+    addToCart(product) {
+      product.quantity++; //increase the qty every time the button is pressed
+      this.totalItems++; //for every time the button is pressed, the qty is added to the cart total
+      this.totalPrice += product.price; //for every time the button is pressed, the price is added to the cart total
+      console.log(this.totalItems, this.totalPrice); //i swear this code works, the console log is a mess but it proves my point 
+      this.cart.push(product);
+      console.log(this.cart);
+    },
   },
 }
 </script>
@@ -39,10 +70,21 @@ h2 {
 
 .container {
   display: flex;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
 }
+
+#end {
+  text-align: center;
+  opacity: 80%;
+}
+
+.products{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  }
 </style>

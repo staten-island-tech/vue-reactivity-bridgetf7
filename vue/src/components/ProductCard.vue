@@ -1,56 +1,43 @@
 <template>
-  <h2>Products</h2>
-  <hr>
   <div class="products">
-    <div class="productCard" v-for="product in products" :key="product.name">
+    <div class="productCard">
       <img :src="product.img" />
       <h3>{{ product.name }}</h3>
       <p class="productType">{{ product.type }}</p>
       <p>{{ usDollar.format(product.price) }}</p>
-      <ProductButton @click="addToCart(product)">Add to Cart</ProductButton>
+      <ProductButton @click="addToCart()">Add to Cart</ProductButton>
+
     </div>
   </div>
-  <p id="end">you've reached the end of the catalogue</p>
 </template>
 
 <script>
-import ProductButton from './ProductButton.vue';
-import { products } from '../products.js';
-
-//https://www.smashingmagazine.com/2020/01/data-components-vue-js/#emitting-custom-events-share-data-child-parent
-//https://learnvue.co/articles/vue-emit-guide
-
+import ProductButton from './ProductButton.vue'
+import { update } from "../update";
 export default {
   name: "ProductCard",
   props: {
-    name: String,
-    type: String,
-    price: Number,
-    img: String,
-    quantity: Number
-  },
-  components: {
-    ProductButton,
+    product: Object,
   },
   data() {
     return {
-      products,
       usDollar: new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
       }),
-      totalItems: 0,
-      totalPrice: 0,
     }
   },
-  methods: {
-    addToCart(product) {
-      product.quantity++; //increase the qty every time the button is pressed
-      this.totalItems++; //for every time the button is pressed, the qty is added to the cart total
-      this.totalPrice += product.price; //for every time the button is pressed, the price is added to the cart total
-      console.log(this.totalItems, this.totalPrice); //i swear this code works, the console log is a mess but it proves my point 
-    },
+  components: {
+    ProductButton,
+    update,
   },
+  methods: {
+  addToCart() {
+    this.$emit('add-to-cart', this.product);
+    update.addToCart();
+  },
+}
+
 }
 </script>
 
@@ -90,11 +77,6 @@ img {
 .productType {
   color: black;
   text-transform: capitalize;
-}
-
-#end {
-  text-align: center;
-  opacity: 80%;
 }
 
 hr {

@@ -5,15 +5,8 @@
 </template>
 
 <script>
-import { products } from "../products";
 export default {
-    name: "Button",
-    data() {
-        return {
-            products
-        };
-    },
-
+    name: "ProductButton",
 }
 </script>
 
