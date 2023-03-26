@@ -37,16 +37,13 @@ export const update = reactive({
   },
   removeOne(product) {
     if (product.quantity > 1) {
-      // if the product quantity is greater than 1, just decrement the quantity by 1
+      // if the product quantity is greater than 1, decrement the qty by 1
       product.quantity -= 1;
       this.totalItems -= 1;
       this.totalPrice -= product.price;
     } else {
       //remove entire item from cart, as the product qty will become 0
-      const target = this.cart.findIndex((key) => key.name === product.name);
-      this.cart.splice(target, 1); //this is basically the removeFromCart function
-      this.totalItems -= 1;
-      this.totalPrice -= product.price;
+      this.removeFromCart(product);
     }
   }
 });

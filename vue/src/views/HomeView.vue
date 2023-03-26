@@ -1,11 +1,11 @@
 <template>
+  <div class="header">
+    <h1>buy my stuff</h1>
+    <h3>please :)</h3>
 
-  <h1>buy my stuff</h1>
-  <h2>please :)</h2>
-
-
-  <h2>Products</h2>
-  <hr>
+    <h2>Products</h2>
+    <hr>
+  </div>
 
   <div class="main">
     <ProductCard v-for="product in products" :product="product" :key="product.name" @addToCart="addToCart" />
@@ -13,7 +13,6 @@
   </div>
 
   <SideBar />
-
 </template>
 
 <script>
@@ -44,9 +43,9 @@ export default {
   methods: {
     addToCart(product) {
     },
-    removeFromCart(product){
+    removeFromCart(product) {
     },
-    removeOne(product){
+    removeOne(product) {
     },
   },
 }
@@ -54,6 +53,7 @@ export default {
 
 <style scoped>
 h1 {
+  margin-top:3rem;
   font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
   font-weight: 600;
@@ -62,8 +62,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
   font-style: italic;
+  line-height: 0;
+}
+
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
 }
 
 .container {
@@ -81,7 +89,7 @@ h2 {
 }
 
 hr {
-  width: 85%;
+  width: 90%;
 }
 
 .main {
@@ -90,5 +98,10 @@ hr {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.header {
+  width: 85%;
+  text-align: center;
 }
 </style>
