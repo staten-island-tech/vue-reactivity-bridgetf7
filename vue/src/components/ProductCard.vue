@@ -1,19 +1,17 @@
 <template>
-  <div class="products">
     <div class="productCard">
-      <img :src="product.img" />
+      <img :src="product.img" :alt="product.name"/>
       <h3>{{ product.name }}</h3>
       <p class="productType">{{ product.type }}</p>
       <p>{{ usDollar.format(product.price) }}</p>
       <ProductButton @click="addToCart()">Add to Cart</ProductButton>
-
     </div>
-  </div>
 </template>
 
 <script>
 import ProductButton from './ProductButton.vue'
 import { update } from "../update";
+
 export default {
   name: "ProductCard",
   props: {
@@ -32,12 +30,11 @@ export default {
     update,
   },
   methods: {
-  addToCart() {
-    this.$emit('add-to-cart', this.product);
-    update.addToCart();
+    addToCart() {
+      this.$emit("addToCart", this.product);
+      update.addToCart(this.product);
+    },
   },
-}
-
 }
 </script>
 
@@ -59,20 +56,10 @@ template {
   height: 25rem;
   line-height: 0.5rem;
 }
-
 img {
   width: 16rem;
 }
 
-.products {
-  width: 80%;
-  display: flex;
-  padding: 2rem;
-  align-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
 
 .productType {
   color: black;

@@ -1,33 +1,33 @@
 <template>
+  
   <h1>buy my stuff</h1>
   <h2>please :)</h2>
 
 
   <h2>Products</h2>
   <hr>
-  <ProductCard v-for="product in products" :product="product" :key="product.name" @addToCart="addToCart" />
-  <p id="end">you've reached the end of the catalogue</p>
-  <SideBar v-for="products in cart" :totalItems="totalItems" :totalPrice="totalPrice" />
-<!--   <div class="totals">
-      <h2>Items in cart: {{ totalItems }}</h2>
-      <h2>Cart total: {{ usDollar.format(totalPrice) }}</h2> 
-    </div> -->
+
+  <div class="main">
+    <ProductCard v-for="product in products" :product="product" :key="product.name" @addToCart="addToCart" />
+    <p id="end">you've reached the end of the catalogue</p>
+  </div>
+
+  <SideBar />
+
 </template>
 
 <script>
 import { products } from '../products.js';
 import ProductCard from '../components/ProductCard.vue';
-import SideBar from '../components/SideBar.vue'
-
-//https://www.smashingmagazine.com/2020/01/data-components-vue-js/#emitting-custom-events-share-data-child-parent
-//https://learnvue.co/articles/vue-emit-guide
+import SideBar from '../components/SideBar.vue';
+import { update } from '../update';
 
 export default {
   name: "Home",
   components: {
     ProductCard,
-    SideBar
-
+    SideBar,
+    update,
   },
   data() {
     return {
@@ -43,12 +43,6 @@ export default {
   },
   methods: {
     addToCart(product) {
-      product.quantity++; //increase the qty every time the button is pressed
-      this.totalItems++; //for every time the button is pressed, the qty is added to the cart total
-      this.totalPrice += product.price; //for every time the button is pressed, the price is added to the cart total
-      console.log(this.totalItems, this.totalPrice); //i swear this code works, the console log is a mess but it proves my point 
-      this.cart.push(product);
-      console.log(this.cart);
     },
   },
 }
@@ -82,9 +76,15 @@ h2 {
   opacity: 80%;
 }
 
-.products{
+hr {
+  width: 85%;
+}
+
+.main {
+  width: 85%;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  }
+  justify-content: center;
+  align-items: center;
+}
 </style>

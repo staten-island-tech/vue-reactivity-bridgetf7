@@ -2,17 +2,26 @@
   <div class="sidebar">
     <h2>Shopping Cart</h2>
     <hr>
-    <!--     <div class="cards">
-      <div class="checkoutCard" v-for="product in products" :key="product.name">
+    <div class="cards">
+
+      <div class="checkoutCard" v-for="product in update.cart" :key="product.name">
         <p>{{ product.name }}</p>
         <p>{{ usDollar.format(product.price) }}</p>
         <p>Qty: {{ product.quantity }}</p>
+
+        <div class="buttons">
+        <ProductButton>Remove All</ProductButton>
+        <ProductButton>Remove One</ProductButton>
       </div>
-    </div> -->
+
+      </div>
+    </div>
+
     <div class="totals">
       <p>Items in cart: {{ update.totalItems }}</p>
-      <!-- <p>Cart total: {{ usDollar.format(totalPrice) }}</p> -->
+      <p>Cart total: {{ usDollar.format(update.totalPrice) }}</p>
     </div>
+
   </div>
 </template>
 
@@ -20,21 +29,26 @@
 <script>
 import { products } from '../products.js'
 import { update } from "../update";
+import ProductButton from './ProductButton.vue';
+
 export default {
-  name: "SideBar",
-  data() {
-    return {
-      products,
-      update,
-      usDollar: new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }),
-      
-    }
-  },
+    name: "SideBar",
+    data() {
+        return {
+            products,
+            update,
+            usDollar: new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+            })
+        };
+    },
+    components: { 
+      ProductButton 
+    },
 }
 </script>
+
 
 <style scoped>
 .shoppingCart {
@@ -45,19 +59,21 @@ export default {
 
 .cards {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 
 .checkoutCard {
   background-color: var(--lightGray);
-  margin: 2rem;
-  padding: 1.25rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  padding: 1rem;
   display: inline-block;
-  width: 16rem;
-  height: 1rem;
+  width: 14rem;
+  height: auto;
   display: flex;
   flex-direction: column;
-  line-height: 0.4rem;
+  line-height: 0;
 }
 
 .sidebar {
@@ -69,6 +85,9 @@ export default {
   background-color: #fffcfc;
   line-height: 1rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
 }
 
 h2 {
@@ -83,5 +102,14 @@ h2 {
 
 hr {
   width: 16rem;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  margin: 0.2rem;
 }
 </style>
