@@ -1,19 +1,17 @@
 <template>
   <div class="sidebar">
     <h2>Shopping Cart</h2>
-    <hr>
+    <hr />
     <div class="cards">
-
       <div class="checkoutCard" v-for="product in update.cart" :key="product.name">
         <p>{{ product.name }}</p>
         <p>{{ usDollar.format(product.price) }}</p>
         <p>Qty: {{ product.quantity }}</p>
 
         <div class="buttons">
-        <ProductButton @click="removeFromCart(product)">Remove All</ProductButton>
-        <ProductButton @click="removeOne(product)">Remove One</ProductButton>
-      </div>
-
+          <RemoveAll :product="product" @removeAll="removeFromCart(product)">Remove All</RemoveAll>
+          <RemoveOne :product="product" @removeOne="removeOne(product)">Remove One</RemoveOne>
+        </div>
       </div>
     </div>
 
@@ -21,45 +19,43 @@
       <p>Items in cart: {{ update.totalItems }}</p>
       <p>Cart total: {{ usDollar.format(update.totalPrice) }}</p>
     </div>
-
   </div>
 </template>
 
-
 <script>
-import { products } from '../products.js'
+import { products } from "../products.js";
 import { update } from "../update";
-import ProductButton from './ProductButton.vue';
+import RemoveAll from "./RemoveAll.vue";
+import RemoveOne from "./RemoveOne.vue";
 
 export default {
-    name: "SideBar",
-    props: {
+  name: "SideBar",
+  props: {
     product: Object,
   },
-    data() {
-        return {
-            products,
-            update,
-            usDollar: new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-            })
-        };
-    },
-    components: { 
-      ProductButton 
-    },
-    methods: {
-    removeFromCart(product) {
-      this.$emit("removeFromCart", product);
-      update.removeFromCart(product);
-    },
-    removeOne(product){
-      this.$emit("removeOne", product);
-      update.removeOne(product);
-    }
+  data() {
+    return {
+      products,
+      update,
+      usDollar: new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }),
+    };
   },
-}
+  components: {
+    RemoveOne,
+    RemoveAll,
+  },
+  methods: {
+    removeFromCart(product) {
+      this.update.removeFromCart(product);
+    },
+    removeOne(product) {
+      this.update.removeOne(product);
+    },
+  },
+};
 </script>
 
 
@@ -117,12 +113,12 @@ hr {
   width: 16rem;
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
 }
 
-button{
+button {
   margin: 0.2rem;
 }
 </style>

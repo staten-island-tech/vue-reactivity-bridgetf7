@@ -1,16 +1,16 @@
 <template>
-    <div class="productCard">
-      <img :src="product.img" :alt="product.name"/>
-      <h3>{{ product.name }}</h3>
-      <p class="productType">{{ product.type }}</p>
-      <p>{{ usDollar.format(product.price) }}</p>
-      <ProductButton @click="addToCart()">Add to Cart</ProductButton>
-    </div>
+  <div class="productCard">
+    <img :src="product.img" :alt="product.name" />
+    <h3>{{ product.name }}</h3>
+    <p class="productType">{{ product.type }}</p>
+    <p>{{ usDollar.format(product.price) }}</p>
+    <AddButton :product="product" @addToCart="addToCart">Add to Cart</AddButton>
+  </div>
 </template>
 
 <script>
-import ProductButton from './ProductButton.vue'
 import { update } from "../update";
+import AddButton from './AddButton.vue';
 
 export default {
   name: "ProductCard",
@@ -26,13 +26,12 @@ export default {
     }
   },
   components: {
-    ProductButton,
-    update,
+    AddButton
   },
+
   methods: {
     addToCart(product) {
-      this.$emit("addToCart", this.product);
-      update.addToCart(this.product);
+      this.$emit("addToCart", product);
     },
   },
 }
@@ -56,6 +55,7 @@ template {
   height: 25rem;
   line-height: 0.5rem;
 }
+
 img {
   width: 16rem;
 }
