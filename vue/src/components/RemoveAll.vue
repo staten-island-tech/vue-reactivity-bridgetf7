@@ -12,15 +12,14 @@ export default {
     },
     methods: {
         removeAll() {
-            // find the index of the product to be removed
-            const target = update.cart.findIndex(
-                (key) => key.name === this.product.name
-            );
-            // remove the product from the cart
+            //find the index of the product to be removed
+            const target = update.cart.findIndex((key) => key.name === this.product.name);
+            //remove the product from the cart
+            //splice(start, deleteCount)
             update.cart.splice(target, 1);
-            // update the total items and total price
+            //update the total items and total price
             update.totalItems -= this.product.quantity;
-            update.totalPrice -= this.product.quantity * this.product.price;
+            update.totalPrice -= (this.product.quantity) * (this.product.price);
         },
     },
 };

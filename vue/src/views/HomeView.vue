@@ -13,6 +13,7 @@
   </div>
 
   <SideBar />
+  
 </template>
 
 <script>
@@ -31,9 +32,6 @@ export default {
   data() {
     return {
       products,
-      totalItems: 0,
-      totalPrice: 0,
-      cart: [],
       usDollar: new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
