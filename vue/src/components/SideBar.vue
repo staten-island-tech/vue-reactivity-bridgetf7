@@ -7,14 +7,12 @@
         <p>{{ product.name }}</p>
         <p>{{ usDollar.format(product.price) }}</p>
         <p>Qty: {{ product.quantity }}</p>
-
         <div class="buttons">
           <RemoveAll :product="product" @removeAll="removeFromCart(product)">Remove All</RemoveAll>
           <RemoveOne :product="product" @removeOne="removeOne(product)">Remove One</RemoveOne>
         </div>
       </div>
     </div>
-
     <div class="totals">
       <p>Items in cart: {{ update.totalItems }}</p>
       <p>Cart total: {{ usDollar.format(update.totalPrice) }}</p>
@@ -49,10 +47,10 @@ export default {
   },
   methods: {
     removeFromCart(product) {
-      this.update.removeFromCart(product);
+      this.$emit("removeFromCart", product);
     },
     removeOne(product) {
-      this.update.removeOne(product);
+      this.$emit("removeOne", product);
     },
   },
 };

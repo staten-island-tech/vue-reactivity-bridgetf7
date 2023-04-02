@@ -9,13 +9,15 @@
 </template>
 
 <script>
-import { update } from "../update";
 import AddButton from './AddButton.vue';
 
 export default {
   name: "ProductCard",
   props: {
     product: Object,
+  },
+  components: {
+    AddButton
   },
   data() {
     return {
@@ -24,9 +26,6 @@ export default {
         currency: "USD",
       }),
     }
-  },
-  components: {
-    AddButton
   },
 
   methods: {
@@ -59,7 +58,6 @@ template {
 img {
   width: 16rem;
 }
-
 
 .productType {
   color: black;
